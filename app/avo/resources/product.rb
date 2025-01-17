@@ -10,6 +10,7 @@ class Avo::Resources::Product < Avo::BaseResource
     field :name, as: :text
     field :price, as: :number
     field :type, as: :text
+    field :description, as: :textarea
     field :image, as: :file
   end
 end

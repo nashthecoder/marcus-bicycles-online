@@ -1,21 +1,21 @@
 <% content_for :title, "Products" %>
 
-<div class="w-full">
+<div class="w-full px-4">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Products</h1>
+    <h2 class="font-bold text-2xl">Results</h2>
   </div>
 
   <div id="products" class="min-w-full">
     <% if @products.any? %>
       <% @products.each do |product| %>
         <%= render product %>
-        <p>
-          <%= link_to "Show this product", product, class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-        </p>
+        <div class="mt-6">
+          <%= link_to "Show this product", product, class: "relative flex items-center justify-center rounded-md border border-transparent bg-fairpink-50 px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200" %>
+        </div>
       <% end %>
     <% else %>
       <p class="text-center my-10">No products found.</p>

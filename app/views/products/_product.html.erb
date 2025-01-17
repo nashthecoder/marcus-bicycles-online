@@ -4,14 +4,16 @@
         <div class="product">
             <div  class="aspect-square w-full overflow-hidden rounded-lg object-cover group-hover:opacity-75 sm:aspect-[2/3]">
                 <% if product.image.attached? %>
-                <p><strong>Image:</strong></p>
+                <p><strong><%= product.name %></strong></p>
                 <%= image_tag product.image %>
                 <% else %>
                 <p>No image available</p>
                 <% end %>
             </div>
             <div class="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                <h3><strong>Name:</strong> <%= product.name %></>
+                <p><strong>Price:</strong> <%= product.price %></p>
+            </div>
+            <div class="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
                 <p><strong>Price:</strong> <%= product.price %></p>
             </div>
         </div>

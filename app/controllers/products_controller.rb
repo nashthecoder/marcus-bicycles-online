@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show ]
+  before_action :set_product, only: [ :show ]
 
   # GET /products or /products.json
   def index
@@ -14,7 +14,9 @@ class ProductsController < ApplicationController
   private
 
   def set_product
-    @product = Product.find(params[:id]) # For `show`, or
-    # @product = Product.all # For `index`, or some other setup for both actions
+    @product = Product.find_by(id: params[:id])
+    unless @product
+      redirect_to products_path, alert: "Product not found"
+    end
   end
 end

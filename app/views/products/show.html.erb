@@ -1,12 +1,20 @@
 <% content_for :title, "Showing product" %>
 
-<div class="md:w-2/3 w-full px-4">
+<div class="md:w-3/3 w-2/2 px-4">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <h1 class="font-bold text-4xl">Showing product</h1>
+  <h1 class="font-bold text-4xl mt-4">Showing product</h1>
+  <%= link_to "Back to products", products_path, class: "my-4 ml-2 rounded-md px-3.5 py-2.5 bg-fairpink-50 hover:bg-gray-200 inline-block font-medium" %>
+  <div class="mx-auto grid max-w-lg grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+    <div class="mx-auto w-full max-w-lg">
+      <%= render partial: 'product', locals: { product: @product } %>
+      <%= render partial: 'shared/order_summary', locals: { product: @product } %>
 
-  <%= render partial: 'product', locals: { product: @product } %>
-  <%= link_to "Back to products", products_path, class: "ml-2 rounded-md px-3.5 py-2.5 bg-fairpink-50 hover:bg-gray-200 inline-block font-medium" %>
+    </div>
+    <div class="mx-auto w-full max-w-lg">
+      <%= render partial: 'shared/checkout', locals: { product: @product } %>
+    </div>
+  </div>
 </div>

@@ -16,20 +16,27 @@ Welcome to Marcus Bicycles Online! This application is designed to provide a sea
 To get started with the application, follow these steps:
 
 1. Clone the repository:
+
     ```bash
     git clone https://github.com/yourusername/marcus-bicycles-online.git
     ```
+
 2. Navigate to the project directory:
+
     ```bash
     cd marcus-bicycles-online
     ```
+
 3. Install dependencies:
+
     ```bash
-    npm install
+    bundle install
     ```
+
 4. Start the development server:
+
     ```bash
-    npm start
+    rails s
     ```
 
 ## Technologies Used
@@ -48,6 +55,6 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For any questions or feedback, please contact us at support@marcusbicycles.com.
+For any questions or feedback, please contact us at support@marcus.com
 
-Happy Cycling!
+Design your ride, define your style, Happy Cycling!

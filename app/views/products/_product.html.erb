@@ -1,14 +1,14 @@
     <div id="<%= dom_id (product) %>">  
         <div class="bg-red">
             <% if product.image.attached? %>
-            <p><strong><%= product.name %></strong></p>
+            <p><strong><%= product.product_type %> </strong> / <%= product.name %> </p>
             <%= image_tag product.image, class: "aspect-square w-full rounded-md bg-white object-contain group-hover:opacity-75 lg:aspect-auto lg:h-80" %>
             <% else %>
                 <p>No image available</p>
             <% end %>
             
             <div class="ml-2 mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                <p><%= product.description %></p>
+                <p><%= product.description.present? ? product.description.html_safe : 'No description available' %></p>
             </div>
             <div class="ml-2 mt-4 flex items-center justify-between text-base font-medium text-gray-900">
                 <p><strong>Price: $</strong> <%= product.price %></p>

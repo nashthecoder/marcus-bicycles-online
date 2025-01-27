@@ -2,7 +2,7 @@ databases:
   - name: marcus_bikes
     databaseName: marcus_bikes
     user: nashthecoder
-    plan: starter
+    plan: basic-265mb
 
 services:
   - type: web

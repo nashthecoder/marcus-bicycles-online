@@ -1,0 +1,23 @@
+databases:
+  - name: marcus_bikes
+    databaseName: marcus_bikes
+    user: nashthecoder
+    plan: starter
+
+services:
+  - type: web
+    name: marcus_bikes_online
+    runtime: ruby
+    plan: starter
+    buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: marcus_bikes
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default

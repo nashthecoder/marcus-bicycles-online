@@ -22,9 +22,12 @@ test:
 
 production:
   <<: *default
-  database: marcus_production
-  username: marcus_admin
-  password: <%= ENV['DB_PASSWORD'] %> # Ensure you set this in your environment variables
-  host: <%= ENV['DB_HOST'] || 'localhost' %> # Replace with your Render database host
+  adapter: postgresql
+  encoding: unicode
+  database: marcus_bikes
+  username: marcus_bikes_user
+  password: <%= ENV['DB_PASSWORD_PROD'] %> # Ensure you set this in your environment variables
+  host: <%= ENV['DB_HOST_PROD'] %> # Replace with your Render database host
   port: 5432
+  pool: 5
   sslmode: require

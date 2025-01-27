@@ -19,15 +19,13 @@
     <%= javascript_importmap_tags %>
   </head>
   <body class="mx-auto">
-    <% unless controller_name.starts_with?('devise/') %>
+    <% if controller_name == 'sessions' && action_name == 'new' %>
+      <%# Skip the default layout for the login page %>
+      <%= yield %>
+    <% else %>
       <%= render "shared/navbar" %>  <!-- Navigation -->
-    <% end %>
-  
-    <%= yield %>
-  
-    <% unless controller_name.starts_with?('devise/') %>
+        <%= yield %>
       <%= render "shared/footer" %> <!-- Footer -->
     <% end %>
-  
   </body>
 </html>

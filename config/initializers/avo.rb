@@ -1,8 +1,11 @@
 # For more information regarding these settings check out our docs https://docs.avohq.io
-# The values disaplayed here are the default ones. Uncomment and change them to fit your needs.
+# The values displayed here are the default ones. Uncomment and change them to fit your needs.
 Avo.configure do |config|
   ## == Routing ==
   config.root_path = '/avo'
+
+  # Lets Avo know who is the current user
+  config.current_user_method = :current_user
   # used only when you have custom `map` configuration in your config.ru
   # config.prefix_path = "/internal"
 
@@ -40,7 +43,7 @@ Avo.configure do |config|
   #   search: 'search?',
   # }
   # config.raise_error_on_missing_policy = false
-  config.authorization_client = nil
+  config.authorization_client = :pundit
   config.explicit_authorization = true
 
   ## == Localization ==

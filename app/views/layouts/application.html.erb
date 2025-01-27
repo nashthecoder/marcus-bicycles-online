@@ -19,8 +19,15 @@
     <%= javascript_importmap_tags %>
   </head>
   <body class="mx-auto">
-      <%= render "shared/navbar" %>    
-      <%= yield %>
-      <%= render "shared/footer" %>
+    <% unless controller_name.starts_with?('devise/') %>
+      <%= render "shared/navbar" %>  <!-- Navigation -->
+    <% end %>
+  
+    <%= yield %>
+  
+    <% unless controller_name.starts_with?('devise/') %>
+      <%= render "shared/footer" %> <!-- Footer -->
+    <% end %>
+  
   </body>
 </html>

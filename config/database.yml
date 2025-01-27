@@ -8,7 +8,7 @@ development:
   <<: *default
   database: marcus_development
   username: marcus_admin
-  password: <%= ENV['DB_PASSWORD'] %>
+  password: <%= ENV['DB_PASSWORD_DEV'] %>
   host: localhost
   port: 5432
 
@@ -16,14 +16,12 @@ test:
   <<: *default
   database: marcus_test
   username: marcus_admin
-  password: <%= ENV['DB_PASSWORD'] %>
+  password: <%= ENV['DB_PASSWORD_DEV'] %>
   host: localhost
   port: 5432
 
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
   database: marcus_bikes
   username: marcus_bikes_user
   password: <%= ENV['DB_PASSWORD_PROD'] %> # Ensure you set this in your environment variables

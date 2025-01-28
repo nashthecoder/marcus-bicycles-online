@@ -22,18 +22,11 @@ test:
 
 production:
   <<: *default
-  database: marcus_bikes
-  username: marcus_bikes_user
+  database: marcus_bikes_xp94
+  username: nashthecoder
   password: <%= ENV['DB_PASSWORD_PROD'] %> # Ensure you set this in your environment variables
   host: <%= ENV['DB_HOST_PROD'] %> # Replace with your Render database host
   port: 5432
   pool: 5
   sslmode: require
 
-cache:
-    adapter: postgresql
-    encoding: unicode
-    database: your_cache_database
-    pool: 5
-    username: your_db_user
-    password: your_db_password  

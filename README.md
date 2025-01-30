@@ -7,8 +7,8 @@ Welcome to Marcus Bicycles Online! This application is designed to provide a sea
 ## Features
 
 - **Product Catalog**: Browse through a wide range of bicycles and accessories. - *DONE*
-- **Product Details**: View detailed information about each product, including specifications and pricing. - DONE
-- **Admin Account**: Create and manage products, offers and restrict customizations. - DONE
+- **Product Details**: View detailed information about each product, including specifications and pricing. - *DONE*
+- **Admin Account**: Create and manage products, offers and restrict customizations. - *DONE*
 - **Shopping Cart**: Add items to your cart and manage your selections.
 - **Checkout**: Securely complete your purchase with our streamlined checkout process.
 - **User Accounts**: Create and manage your user profile for a personalized shopping experience.
@@ -40,7 +40,7 @@ The best data model for this application depends on its complexity and scalabili
 - `name` (String)  
 - `additional_price` (Decimal)  
 
-**Carts** 
+**Carts**
 
 - `id` (Primary Key)  
 - `user_id` (Foreign Key → Users)  
@@ -63,26 +63,38 @@ The best data model for this application depends on its complexity and scalabili
 
 ---
 
-## Main User Actions  
+## Main User Actions
 
-### 1. Browsing and Viewing Products  
+1. Browse Products: Users can browse through a list of products.
+2. View Product Details: Users can view detailed information about a product, including available variants.
+3. Add to Cart: Users can add products (with selected variants) to their cart.
+4. View Cart: Users can view the contents of their cart.
+5. Checkout: Users can proceed to checkout and place an order.
+6. Manage Orders: Users can view their order history and track the status of their orders.
 
-- Users can view a list of available products.  
-- Clicking on a product displays its details, including available variations, pricing, and images.  
+## Product Page
 
-### 2. Selecting Product Options & Adding to Cart 
+- **UI Presentation**: Display product details including name, description, base price, and available variants.
+- **Available Options** Calculation: Fetch product variants from the database and display them as selectable options.
+- **Price Calculation**: Calculate the total price based on the base price of the product and the additional price of the selected variant.
 
-- Customers choose a product and select available customization options (e.g., rim color).  
-- Clicking “Add to Cart” saves the product and selected options in their cart.  
+## Add to Cart Action
 
-### 3. Checkout & Payment  
-
-- Users proceed to checkout, where they can review their cart, enter shipping details, and complete payment.  
-
-### 4. Order Management
-
-- Users can track their order status (e.g., pending, shipped, completed).  
-- Admin (Marcus) can update order status via the admin panel.  
+- **Button Click**: When the "add to cart" button is clicked, the selected product and variant are added to the user's cart.
+- **Database Persistence**: Create a new CartItem record with the cart_id, product_id, variant_id, and quantity.
+Administrative Workflows
+New Product Creation: Marcus can create a new product by providing the name, description, and base price. This creates a new Product record in the database.
+Adding a New Part Choice: Marcus can introduce a new variant (e.g., rim color) by creating a new Variant record associated with the product.
+Setting Prices: Marcus can change the price of a specific part or specify pricing for combinations of choices by updating the base_price of the product or the additional_price of the variant.
+New Product Creation
+Required Information: Name, description, base price.
+Database Changes: Insert a new record into the Products table.
+Adding a New Part Choice
+UI: Provide a form to enter the name and additional price of the new variant.
+Database Changes: Insert a new record into the Variants table with the product_id of the associated product.
+Setting Prices
+UI: Provide forms to update the base price of a product and the additional price of variants.
+Database Handling: Update the base_price in the Products table and the additional_price in the Variants table.
 
 ## Product Page  
 
@@ -203,6 +215,3 @@ This project is licensed under the MIT License.
 For any questions or feedback, please contact us at support@marcus.com
 
 Design your ride, define your style, Happy Cycling!
-
-- [x] This is a checked item
-- [x] **Product Catalog**: Browse through a wide range of bicycles and accessories.

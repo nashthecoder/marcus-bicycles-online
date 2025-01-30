@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
-# exit on error
-set -o errexit
+# Exit on first error
+set -o errexit  
 
+# Install all necessary gems d
 bundle install
-bundle exec rails assets:precompile
-bundle exec rails assets:clean
+
+# Run database migrations or schema load
+if [[ "$RAILS_ENV" == "production" ]]; then
+    rails db:prepare  # This runs `db:migrate` or `db:schema:load` as needed
+fi
+
+# Precompile assets for production
+rails assets:precompile
+
+# Clear cache of any temporary files that may cause issues
+rails tmp:clear

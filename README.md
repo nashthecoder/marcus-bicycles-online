@@ -8,16 +8,17 @@ Welcome to Marcus Bicycles Online! This application is designed to provide a sea
 
 - **Product Catalog**: Browse through a wide range of bicycles and accessories. - *DONE*
 - **Product Details**: View detailed information about each product, including specifications and pricing. - *DONE*
-- **Admin Account**: Create and manage products, offers and restrict customizations. - *DONE*
+- **Admin Account**: Create and manage products, offers and restrict customizations. - *PARTLY DONE*
 - **Shopping Cart**: Add items to your cart and manage your selections.
 - **Checkout**: Securely complete your purchase with our streamlined checkout process.
-- **User Accounts**: Create and manage your user profile for a personalized shopping experience.
+- **Payment**: Securely complete your purchase with our streamlined checkout process. - *Basic UI only*
+- **User Accounts**: Create and manage your user profile for a personalized shopping experience. - *Basic UI only*
 
 ## Data Model
 
-The best data model for this application depends on its complexity and scalability needs. A relational database like PostgreSQL would work well for structured relationships, while a NoSQL database like MongoDB could offer flexibility for product variations. Below is a relational model:
+Used PostgreSQL.
 
-### Tables
+### Data Tables
 
 **Users**  
 
@@ -40,13 +41,13 @@ The best data model for this application depends on its complexity and scalabili
 - `name` (String)  
 - `additional_price` (Decimal)  
 
-**Carts**
+**Carts**  
 
 - `id` (Primary Key)  
 - `user_id` (Foreign Key → Users)  
 - `status` (Enum: active, completed)  
 
-**Cart_Items**
+**Cart_Items**  
 
 - `id` (Primary Key)  
 - `cart_id` (Foreign Key → Carts)  
@@ -83,20 +84,22 @@ The best data model for this application depends on its complexity and scalabili
 - **Button Click**: When the "add to cart" button is clicked, the selected product and variant are added to the user's cart.
 - **Database Persistence**: Create a new CartItem record with the cart_id, product_id, variant_id, and quantity.
 Administrative Workflows
-New Product Creation: Marcus can create a new product by providing the name, description, and base price. This creates a new Product record in the database.
-Adding a New Part Choice: Marcus can introduce a new variant (e.g., rim color) by creating a new Variant record associated with the product.
-Setting Prices: Marcus can change the price of a specific part or specify pricing for combinations of choices by updating the base_price of the product or the additional_price of the variant.
+- **New Product Creation**: Marcus can create a new product by providing the name, description, and base price. This creates a new Product record in the database.
+- **Adding a New Part Choice**: Marcus can introduce a new variant (e.g., rim color) by creating a new Variant record associated with the product.
+- **Setting Prices**: Marcus can change the price of a specific part or specify pricing for combinations of choices by updating the base_price of the product or the additional_price of the variant.
 New Product Creation
-Required Information: Name, description, base price.
-Database Changes: Insert a new record into the Products table.
+- **Required Information**: Name, description, base price.
+- **Database Changes**: Insert a new record into the Products table.
 Adding a New Part Choice
-UI: Provide a form to enter the name and additional price of the new variant.
-Database Changes: Insert a new record into the Variants table with the product_id of the associated product.
-Setting Prices
-UI: Provide forms to update the base price of a product and the additional price of variants.
-Database Handling: Update the base_price in the Products table and the additional_price in the Variants table.
+- **UI**: Provide a form to enter the name and additional price of the new variant.
+- **Database Changes**: Insert a new record into the Variants table with the product_id of the associated product.
 
-## Product Page  
+## Setting Prices
+
+- **UI**: Provide forms to update the base price of a product and the additional price of variants.
+- **Database Handling**: Update the base_price in the Products table and the additional_price in the Variants table.
+
+## Product Page
 
 ---
 
@@ -119,8 +122,7 @@ Database Handling: Update the base_price in the Products table and the additiona
 - `Final Price = base_price + additional_price (if variant selected)`  
 
 ---
-
-## Add to Cart Action  
+## Add to Cart Action 
 
 ### Process Flow
 

@@ -9,6 +9,7 @@ class Avo::Resources::User < Avo::BaseResource
     field :id, as: :id
     field :email, as: :text
     field :role, as: :text
-    field :password, as: :text
+    field :password, as: :password
+    field :password_confirmation, as: :password
   end
 end

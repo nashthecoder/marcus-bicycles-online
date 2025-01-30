@@ -64,7 +64,7 @@ Used PostgreSQL.
 
 ---
 
-## Main User Actions
+## [Main User Actions](https://marcus-bikes-online.onrender.com/)
 
 1. Browse Products: Users can browse through a list of products.
 2. View Product Details: Users can view detailed information about a product, including available variants.
@@ -83,14 +83,18 @@ Used PostgreSQL.
 
 - **Button Click**: When the "add to cart" button is clicked, the selected product and variant are added to the user's cart.
 - **Database Persistence**: Create a new CartItem record with the cart_id, product_id, variant_id, and quantity.
-Administrative Workflows
+
+## [Administrative Workflows](https://marcus-bikes-online.onrender.com/avo/resources/products/new)
+
 - **New Product Creation**: Marcus can create a new product by providing the name, description, and base price. This creates a new Product record in the database.
 - **Adding a New Part Choice**: Marcus can introduce a new variant (e.g., rim color) by creating a new Variant record associated with the product.
 - **Setting Prices**: Marcus can change the price of a specific part or specify pricing for combinations of choices by updating the base_price of the product or the additional_price of the variant.
 New Product Creation
 - **Required Information**: Name, description, base price.
 - **Database Changes**: Insert a new record into the Products table.
-Adding a New Part Choice
+
+## Adding a New Part Choice
+
 - **UI**: Provide a form to enter the name and additional price of the new variant.
 - **Database Changes**: Insert a new record into the Variants table with the product_id of the associated product.
 
@@ -100,7 +104,6 @@ Adding a New Part Choice
 - **Database Handling**: Update the base_price in the Products table and the additional_price in the Variants table.
 
 ## Product Page
-
 ---
 
 ### UI Presentation
@@ -153,7 +156,8 @@ Adding a New Part Choice
 
 ### 2. Adding a New Part Choice (e.g., New Rim Color) 
 
-- UI: Marcus selects an existing product and adds a new variant via the admin panel.  
+- **UI**: Marcus selects an existing product and adds a new variant via the admin panel.
+
 - **Database Changes:**  
   - New row in `Variants` table linked to the product.  
 

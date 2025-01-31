@@ -1,6 +1,14 @@
 class Cart <ApplicationRecord
+    belongs_to :user
     has_many :cart_items, dependent: :destroy
     has_many :products, through: :cart_items
+
+    class CartsController < ApplicationController
+        def checkout
+            @cart_items = current_cart.items
+            render "shared/_checkout"
+        end
+    end
 
     # Add product to the cart or update quantity
     def add_product(product_id)

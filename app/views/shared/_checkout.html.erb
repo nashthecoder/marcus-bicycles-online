@@ -1,4 +1,14 @@
 <div class="bg-fairpink-50 p-4 mb-4 rounded w-full">
+    <h1>Cart</h1>
+    <% if @cart_items.present? %>
+    <% @cart_items.each do |cart_item| %>
+        <div class="cart-item">
+        <%= cart_item.product.name %> - <%= cart_item.quantity %>
+        </div>
+    <% end %>
+    <% else %>
+    <p>Your cart is empty.</p>
+    <% end %>
     <h1 class="font-bold text-3xl mt-4 flex justify-center">Pay & Ship</h1>
     <div class="mx-auto max-w-7xl px-4 pb-16 pt-4 sm:px-6 sm:pb-24 sm:pt-8 lg:px-8 xl:px-2 xl:pt-12">
             <div class="mx-auto w-full">

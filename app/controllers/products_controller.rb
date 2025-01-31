@@ -19,4 +19,12 @@ class ProductsController < ApplicationController
       redirect_to products_path, alert: "Product not found"
     end
   end
+
+  def set_cart
+    if user_signed_in?
+      @cart = current_user.cart || current_user.create_cart
+    else
+      @cart = nil
+    end
+  end
 end

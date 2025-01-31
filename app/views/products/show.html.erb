@@ -8,13 +8,11 @@
   <h1 class="font-bold text-4xl mt-4">Showing product</h1>
   <%= link_to "Back to products", products_path, class: "my-4 ml-2 rounded-md px-3.5 py-2.5 bg-fairpink-50 hover:bg-gray-200 inline-block font-medium" %>
   <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-    <div class="order">
+    <div class="product mb-5">
       <%= render partial: 'product', locals: { product: @product } %>
-      <%= render partial: 'shared/order_summary', locals: { product: @product } %>
-
     </div>
-    <div class="checkout">
-      <%= render partial: 'shared/checkout', locals: { product: @product } %>
+    <div class="btn mt-4">
+      <%= button_to 'Add to Cart', add_product_cart_path(@cart, product_id: @product.id), method: :post, class: 'btn' %>
     </div>
   </div>
 </div>

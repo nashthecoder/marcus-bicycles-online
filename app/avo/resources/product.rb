@@ -11,9 +11,6 @@ class Avo::Resources::Product < Avo::BaseResource
     field :price, as: :number, required: true
     field :product_type, as: :text
     field :description, as: :trix, always_show: true
-    field :product_category, as: :text
-    field :image, as: :file
-
     # Corrected field name for Category
     field :product_category, as: :select, enum: {
       "Bicycles" => "bicycles",
@@ -26,5 +23,7 @@ class Avo::Resources::Product < Avo::BaseResource
       "Out of Stock" => "out_of_stock",
       "Pre-Order" => "pre_order"
     }, required: true, searchable: true
+
+    field :image, as: :file
   end
 end

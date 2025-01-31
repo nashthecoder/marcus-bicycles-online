@@ -66,6 +66,11 @@ Used PostgreSQL.
 
 ## [Main User Actions](https://marcus-bikes-online.onrender.com/)
 
+### Test User:
+
+  email: 'marcus@example.com',
+  password: 'password123',
+
 1. Browse Products: Users can browse through a list of products.
 2. View Product Details: Users can view detailed information about a product, including available variants.
 3. Add to Cart: Users can add products (with selected variants) to their cart.

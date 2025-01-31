@@ -34,13 +34,6 @@ Used PostgreSQL.
 - `description` (Text)  
 - `base_price` (Decimal)  
 
-**Variants** (For product variations like different rim colors)  
-
-- `id` (Primary Key)  
-- `product_id` (Foreign Key → Products)  
-- `name` (String)  
-- `additional_price` (Decimal)  
-
 **Carts**  
 
 - `id` (Primary Key)  
@@ -62,6 +55,13 @@ Used PostgreSQL.
 - `status` (Enum: pending, shipped, completed)  
 - `total_price` (Decimal)  
 
+**Variants** (For product variations like different rim colors)   - *Not Implemented*
+
+- `id` (Primary Key)  
+- `product_id` (Foreign Key → Products)  
+- `name` (String)  
+- `additional_price` (Decimal)  
+
 ---
 
 ## [Main User Actions](https://marcus-bikes-online.onrender.com/)
@@ -80,19 +80,28 @@ Used PostgreSQL.
 
 ## Product Page
 
+![All Products](/app/assets/images/AllProducts.png)
+
 - **UI Presentation**: Display product details including name, description, base price, and available variants.
 - **Available Options** Calculation: Fetch product variants from the database and display them as selectable options.
 - **Price Calculation**: Calculate the total price based on the base price of the product and the additional price of the selected variant.
+
+![Product](/app/assets/images/Products.png)
 
 ## Add to Cart Action
 
 - **Button Click**: When the "add to cart" button is clicked, the selected product and variant are added to the user's cart.
 - **Database Persistence**: Create a new CartItem record with the cart_id, product_id, variant_id, and quantity.
 
-## [Administrative Workflows](https://marcus-bikes-online.onrender.com/avo/resources/products/new)
 
 - **New Product Creation**: Marcus can create a new product by providing the name, description, and base price. This creates a new Product record in the database.
+
+![Create New](/app/assets/images/CreateNew.png)
+
+![Product List](/app/assets/images/ProductList.png)
+
 - **Adding a New Part Choice**: Marcus can introduce a new variant (e.g., rim color) by creating a new Variant record associated with the product.
+
 - **Setting Prices**: Marcus can change the price of a specific part or specify pricing for combinations of choices by updating the base_price of the product or the additional_price of the variant.
 New Product Creation
 - **Required Information**: Name, description, base price.

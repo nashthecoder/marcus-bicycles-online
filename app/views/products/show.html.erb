@@ -12,7 +12,12 @@
       <%= render partial: 'product', locals: { product: @product } %>
     </div>
     <div class="btn mt-4">
-      <%= button_to 'Add to Cart', add_product_cart_path(@cart, product_id: @product.id), method: :post, class: 'btn' %>
+      <%= link_to 'Add to Cart', 
+          add_product_cart_path(@cart, product_id: @product.id), 
+          method: :post, 
+          class: "my-4 ml-2 rounded-md px-3.5 py-2.5 bg-red-700 text-white font-medium cursor-not-allowed opacity-50 pointer-events-none", 
+          onclick: "return false;" 
+      %>
     </div>
   </div>
 </div>
